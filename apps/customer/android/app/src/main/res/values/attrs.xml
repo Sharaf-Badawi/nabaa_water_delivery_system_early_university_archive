@@ -1,0 +1,5 @@
+<!-- res/values/attrs.xml -->
+<resources>
+    <!-- Use enableOnBackInvokedCallback only for API level 33 and above -->
+    <bool name="enable_on_back_callback">true</bool>
+</resources>

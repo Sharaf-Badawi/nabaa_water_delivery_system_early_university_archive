@@ -1,0 +1,44 @@
+# Flutter/Dart generated files
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+
+# Android/Gradle generated files
+**/.gradle/
+**/.cxx/
+**/local.properties
+*.iml
+
+# Apple generated files
+**/Pods/
+**/.symlinks/
+DerivedData/
+
+# JavaScript/backend dependencies
+node_modules/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+google-services.json
+GoogleService-Info.plist
+firebase_options.dart
+.firebaserc
+**/key.properties
+**/*.jks
+**/*.keystore
+**/*.pem
+**/*.p12
+**/*.p8
+**/serviceAccount*.json
+**/firebase-adminsdk-*.json
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,6 @@
+# Copy this file to android/key.properties for a private local release build.
+# Do not commit the copied file or the keystore.
+storePassword=REPLACE_WITH_LOCAL_STORE_PASSWORD
+keyPassword=REPLACE_WITH_LOCAL_KEY_PASSWORD
+keyAlias=REPLACE_WITH_LOCAL_KEY_ALIAS
+storeFile=REPLACE_WITH_LOCAL_KEYSTORE_PATH

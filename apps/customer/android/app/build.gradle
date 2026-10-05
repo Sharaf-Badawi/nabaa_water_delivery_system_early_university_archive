@@ -1,0 +1,90 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace = "com.badawi.nabaa"
+    compileSdk = 34
+    ndkVersion = flutter.ndkVersion
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.badawi.nabaa"
+        minSdk = 23
+        targetSdk = 34
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+        resValue "string", "com.google.firebase.crashlytics.build_id", "YOUR_CRASHLYTICS_BUILD_ID"
+
+    }
+
+    signingConfigs {
+        release {
+            if (keystorePropertiesFile.exists()) {
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // Use a local release key only when key.properties exists.
+            // Otherwise the archive falls back to the generated debug key.
+            signingConfig keystorePropertiesFile.exists()
+                    ? signingConfigs.release
+                    : signingConfigs.debug
+            // Enable code shrinking, obfuscation, and optimization for release builds
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // To avoid issues with debugging symbols, optionally set:
+             ndk {
+                 debugSymbolLevel 'none'
+             }
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:33.3.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-perf'
+    implementation 'com.google.android.play:integrity:1.4.0'
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
+}

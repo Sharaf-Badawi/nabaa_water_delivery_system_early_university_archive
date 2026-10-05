@@ -1,0 +1,39 @@
+// Function to send a new order notification using FCM HTTP v1 API
+void _sendNewOrderNotification(DocumentSnapshot order) async {
+  String orderId = order.id;
+  String userId = order['userId'];
+  String totalCost = order['totalCost'].toString();
+
+  // Customize the message as needed
+  String title = "طلب جديد!";
+  String body = "تم استلام طلب جديد بقيمة $totalCost دينار";
+
+  // Notification data to be sent to FCM
+  final notificationData = {
+    "message": {
+      "topic": "${widget.stationId}", // Send to the station topic
+      "notification": {
+        "title": title,
+        "body": body,
+        "sound": "default",
+      },
+      "data": {
+        "orderId": orderId,
+        "userId": userId,
+      }
+    }
+  };
+
+  // Send the notification to FCM using the HTTP v1 API
+  var accessToken = await getAccessToken(); // Function to get the access token
+  await http.post(
+    Uri.parse('https://example.invalid/fcm/messages:send'),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer $accessToken', // Use the access token
+    },
+    body: jsonEncode(notificationData),
+  );
+}
+
+// Function to get access token for FCM HTTP v1 API
