@@ -12,7 +12,7 @@ The project was an ambitious early attempt to build a real-time water-delivery p
 
 This is a historical software archive, not a production system. The code intentionally retains its early structure and several architectural weaknesses so that it remains an honest record of the project. It should not be deployed against the original Firebase project.
 
-The public version has been sanitized: private credentials, signing material, live Firebase configuration, personal contact details, live notification endpoints, generated build caches, and screenshots containing identifiable data were removed or replaced with placeholders.
+The public version has been sanitized: private credentials, signing material, live Firebase configuration, personal contact details, live notification endpoints, and generated build caches were removed or replaced with placeholders. A separate screenshot set is included as a visual reference; remaining names, phone numbers, email addresses, order records, and address fields in those images were covered before publication.
 
 ## Repository layout
 
@@ -25,7 +25,7 @@ docs/
 ├── configuration.md
 ├── known-issues.md
 ├── security-audit.md
-├── screenshots/       # Explanation of why original screenshots are omitted
+├── screenshots/       # Sanitized UI references and screenshot galleries
 └── legacy-fragments/  # Incomplete historical code kept for reference
 PUBLISH_TO_GITHUB.md
 SECURITY.md
@@ -57,6 +57,31 @@ The three applications demonstrate an intended platform with:
 - Shared Preferences
 
 The dependency versions are historical snapshots. Modern Flutter, Gradle, Android Gradle Plugin, Kotlin, and package versions may require compatibility changes before any app can run.
+
+## Visual references
+
+The following images are sanitized visual references from the early project. They document the intended interfaces; they are not evidence that the archived code is production-ready.
+
+### Customer app
+
+![Customer app map](docs/screenshots/customer/customer-01.png)
+![Customer app product selection](docs/screenshots/customer/customer-09.png)
+
+Full gallery: [customer app screenshots](docs/screenshots/customer/README.md).
+
+### Station/provider app
+
+![Station app schedule](docs/screenshots/station-provider/station-03.png)
+![Station app products](docs/screenshots/station-provider/station-06.png)
+
+Full gallery: [station/provider app screenshots](docs/screenshots/station-provider/README.md).
+
+### Administration app
+
+![Administration app home](docs/screenshots/admin/admin-01.png)
+![Administration app station management](docs/screenshots/admin/admin-04.png)
+
+Full gallery: [administration app screenshots](docs/screenshots/admin/README.md).
 
 ## Running locally
 
@@ -91,7 +116,7 @@ These are documented in [docs/known-issues.md](docs/known-issues.md). They are p
 
 Read [SECURITY.md](SECURITY.md) before using or publishing this repository. In particular, do not reuse the old repository history or its tags when creating the public repository. The original projects contained credentials and signing material that must be considered compromised if they were ever active or shared.
 
-The supplied screenshots are not included because they displayed names, email addresses, phone numbers, order identifiers, residential details, and map locations. See [docs/screenshots/README.md](docs/screenshots/README.md).
+The included screenshot copies were reviewed and sanitized for public presentation. The original screenshot package should remain private. See [docs/screenshots/README.md](docs/screenshots/README.md).
 
 ## License
 

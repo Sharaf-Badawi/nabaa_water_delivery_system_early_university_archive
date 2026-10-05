@@ -22,7 +22,9 @@ The audit covered the three Flutter projects, Android configuration, source file
 
 ### Privacy findings
 
-The screenshots displayed personal names, email addresses, phone numbers, order identifiers, residential details, and map locations. They were therefore excluded rather than published unchanged. Literal email addresses in source and localization content were replaced with `contact@example.invalid`.
+The supplied screenshots displayed personal-looking names, email addresses, phone numbers, order identifiers, residential details, and map/location data. They were not published unchanged. Literal email addresses in source and localization content were replaced with `contact@example.invalid`.
+
+The later screenshot package was reviewed separately. The public copies in `docs/screenshots/` cover the visible name, email, phone, order, and address fields that remained in the supplied images. The original screenshot package must remain private.
 
 ## Sanitization performed
 
@@ -33,8 +35,8 @@ The screenshots displayed personal names, email addresses, phone numbers, order 
 - Removed cleartext traffic allowance from the customer Android manifest.
 - Made customer release signing fall back to the debug key unless a private local signing configuration is supplied.
 - Moved the incomplete notification fragment out of the app source and labelled it as historical reference material.
-- Excluded screenshots containing identifiable data.
+- Added reviewed screenshot copies under `docs/screenshots/` with visible identifying and dynamic record fields covered.
 
 ## Verification limits
 
-No current Flutter SDK was available in the audit environment, so `flutter analyze` and `flutter build` could not be run here. The sanitized tree was checked for the known credential patterns, original project identifiers, private-key markers, signing files, local paths, and live notification endpoints. The build should still be treated as historical and may require toolchain updates.
+No current Flutter SDK was available in the audit environment, so `flutter analyze` and `flutter build` could not be run here. The sanitized tree was checked for the known credential patterns, original project identifiers, private-key markers, signing files, local paths, and live notification endpoints. The included PNG files were also reviewed visually and checked with text extraction for the original name, email, and phone patterns. The build should still be treated as historical and may require toolchain updates.

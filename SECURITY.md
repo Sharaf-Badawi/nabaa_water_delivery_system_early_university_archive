@@ -13,7 +13,7 @@ The source archive contained the following high-risk material, which is absent f
 - Firebase client options and Google Maps configuration tied to the original project;
 - live Cloud Functions notification URLs;
 - generated Gradle/CMake caches and local machine configuration;
-- screenshots containing personal or potentially identifying information.
+- original screenshots containing personal or potentially identifying information; the public archive contains only reviewed copies with those fields covered.
 
 The service-account key and signing material were not merely hidden. They were removed from the public tree. The original archive was not rewritten in place.
 
@@ -34,7 +34,7 @@ Even after sanitization, the preserved application design has security risks if 
 - the archive does not contain Firestore or Storage Rules;
 - order state, completed-order copies, commissions, and totals are updated in several independent operations;
 - notification calls were initiated from client code and depended on a live endpoint;
-- location, phone, residential, and order information is handled throughout the UI without a demonstrated data-minimization model;
+- location, phone, residential, and order information is handled throughout the UI without a demonstrated data-minimization model; the included screenshots are sanitized, but the application design itself still handles this data;
 - the apps contain old dependencies and outdated Android build conventions.
 
 Treat the repository as source to study, not as a secure deployment baseline.

@@ -1,5 +1,15 @@
 # Screenshots
 
-The supplied screenshots are intentionally not included in the public archive. They showed names, email addresses, phone numbers, order identifiers, residential information, and map/location data. Some records may have been demonstrations, but their status could not be verified safely.
+This directory contains sanitized visual references from the early Nabaa water-delivery project. The images are included to document the user interfaces of the customer, station/provider, and administration apps.
 
-Keep the original screenshots private. If screenshots are added later, replace all user-visible data with fabricated values, remove map coordinates and order IDs, and inspect every image before committing it.
+The original screenshots contained a mixture of demonstration values and identifiable-looking data. Before inclusion, visible names, email addresses, phone numbers, order records, apartment/address fields, and account information were covered. The original screenshot ZIP should remain private.
+
+These images are historical UI references only. They do not prove that the archived applications are secure, complete, or currently runnable.
+
+## Galleries
+
+- [Customer app](customer/README.md)
+- [Station/provider app](station-provider/README.md)
+- [Administration app](admin/README.md)
+
+Maps and generic interface text remain where they help explain the original design. Do not add new screenshots containing real users, credentials, phone numbers, addresses, order identifiers, or live service configuration.

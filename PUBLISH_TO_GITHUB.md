@@ -30,6 +30,10 @@ git push -u origin main
 git push origin legacy-v1-sanitized
 ```
 
+## Web upload note
+
+Uploading the source-only ZIP through GitHub's web page stores the ZIP as one file; GitHub will not display the README, apps, or screenshot galleries on the repository page. To make the repository browsable, extract the source-only ZIP and upload its contents, including the root `README.md`, `apps/`, `docs/`, `SECURITY.md`, and `.gitignore`. The Git-ready ZIP is not useful as a web-uploaded ZIP because its `.git` folder is treated as ordinary archived data.
+
 ## Final local check
 
 Before pushing, run:
@@ -39,4 +43,3 @@ git grep -n -I -E "AIza[0-9A-Za-z_-]{20,}|-----BEGIN (RSA|OPENSSH|EC) PRIVATE KE
 ```
 
 The command should return no matches. Enable GitHub secret scanning and push protection on the new repository. Keep the original repositories private until their history has been checked and any exposed credentials have been revoked.
-
